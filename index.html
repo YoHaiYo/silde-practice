@@ -46,8 +46,8 @@ a:hover{color: red;}
 </head>
 <body>
   <!-- .swiper.ofh>.swiper-wrapper.d-flex>.swiper-slide.h-300px*3{$} -->
-  <div class="swiper container ofhxxx">
-    <div class="swiper-wrapper d-flex">
+  <div class="swiper container h-300px ofh">
+    <div class="swiper-wrapper">
       <div class="swiper-slide w-1200px h-300px bd bg-red">1</div>
       <div class="swiper-slide w-1200px h-300px bd bg-yellow">2</div>
       <div class="swiper-slide w-1200px h-300px bd bg-green">3</div>
@@ -62,19 +62,19 @@ a:hover{color: red;}
     $('옮길태그').appendTo($(부모가될태그))
      */
 
-     const aniwidth = $('.swiper-slide').width();
-    /* 원래이거임. $('.swiper-wrapper').css('width'); 
-      but width는 하도많이써서 메서드 새로 만들어줌.
-      그리고 width()처럼 비어 있으면 값을 가져온다는 뜻임!
+     const aniheight = $('.swiper-slide').height();
+    /* 원래이거임. $('.swiper-wrapper').css('height'); 
+      but height 하도많이써서 메서드 새로 만들어줌.
+      그리고 height()처럼 비어 있으면 값을 가져온다는 뜻임!
     */
 
     $(document).ready(function(){      
       setInterval(function(){
         $('.swiper-wrapper').animate({
-          'marginLeft' : -aniwidth
-        },1000, function() {
+          'marginTop' : -aniheight
+        },400, function() {
           $('.swiper-slide').eq(0).appendTo($('.swiper-wrapper'))
-          $('.swiper-wrapper').css({'marginLeft' : 0})
+          $('.swiper-wrapper').css({'marginTop' : 0})
         })
       },3000)
     })
