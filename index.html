@@ -74,20 +74,27 @@ a:hover{color: red;}
      */
     let count = 0;
     let slideNum = $('.swiper-slide').length;
+
     $(document).ready(function(){      
 
       setInterval(fadeSlide,3000) // 콜백함수로 빼줘서 메모리 아끼기.
+      /* 
+        그냥 이름없이 실행 vs 콜백함수로 실행
+        그냥 실행하면, 3초마다 실행식을 다 해석함.
+        But 콜백함수로 실행하면 함수만 실행.
+        강사님 비유 : 전화번호 매번 입력해서 전화하기 vs 단축번호지정해서 전화하기.
+       */
 
       function fadeSlide(){ // 선언적함수
         count++;
         count = count % slideNum; // 1, 2, 0, 1 ...
         // 방법 1
-        /* $('.swiper-slide').eq(count).addClass('on')
-        .siblings().removeClass('on') // siblings : 형제 요소 선택 */
+        $('.swiper-slide').eq(count)
+        .addClass('on').siblings().removeClass('on') // siblings : 형제 요소 선택
 
         // 방법 2 : 나중에 토글에서 문제생길 수 있음.
-        $('.swiper-slide').removeClass('on')
-        $('.swiper-slide').eq(count).addClass('on')
+        /* $('.swiper-slide').removeClass('on')
+        $('.swiper-slide').eq(count).addClass('on') */
       }
 
     })
