@@ -73,17 +73,18 @@ a:hover{color: red;}
     /* 나머지식으로 순환코드만드는게 핵심. 예를들어 3으로 나눠서 나머지가 될 수 있는 수는 1,2.
      */
     let count = 0;
+    let slideNum = $('.swiper-slide').length;
     $(document).ready(function(){      
 
       setInterval(fadeSlide,3000) // 콜백함수로 빼줘서 메모리 아끼기.
 
       function fadeSlide(){ // 선언적함수
         count++;
-        count = count % 3; // 1, 2, 0, 1 ...
+        count = count % slideNum; // 1, 2, 0, 1 ...
         $('.swiper-slide').eq(count).addClass('on')
         .siblings().removeClass('on') // siblings : 형제 요소 선택
       }
-      
+
     })
   </script>
 </body>
